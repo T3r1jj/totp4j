@@ -1,4 +1,4 @@
-## tot4j
+## totp4j
 
 This module is pretty small but will allow for consistent generation of **Time-based One-time Password** in **Java**
 
@@ -23,7 +23,8 @@ This module is pretty small but will allow for consistent generation of **Time-b
 ````
 
 #### Example usage
-1. Securely acquire (accessing API) / relay (defining access to your own API) **INTERVAL**, **KEY**, **TOKEN_LENGTH** and **HMAC_ALGORITHM** beforehand (check other project pages / wikis). Create TOTP with mentioned parameters.
+Securely acquire (accessing API) / relay (defining access to your own API) **INTERVAL**, **KEY**, **TOKEN_LENGTH** and **HMAC_ALGORITHM** beforehand (check other project pages / wikis). Create TOTP with mentioned parameters.
+ 
 ````Java
 TOTP totp = new TOTP.Builder()
         .setInterval(INTERVAL)
@@ -34,10 +35,12 @@ TOTP totp = new TOTP.Builder()
         .createTOTP();
 ````
 a) Validate integer token:
+
 ````Java
 boolean valid = totp.isTokenValid(token);
 ````
 b) Generate integer token:
+
 ````Java
 int token = totp.generateToken();
 ````
