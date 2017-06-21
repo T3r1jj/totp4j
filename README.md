@@ -1,9 +1,9 @@
 ## totp4j
 
-This module is pretty small but will allow for consistent generation of **Time-based One-time Password** in **Java**
+This library provides a way to generate and validate **Time-based One-time Password** (token) in **Java**
 
 #### Installation (Maven)
-1. Create libs/ directory in the project root directory. **[Download jar from releases](/uploads/d2ad229b5674ac1d1fd7cb5943528646/totp4j-1.0.0.jar)** and place it in **libs/io/gitlab/druzyna_a/totp4j/1.0.0/** directory.
+1. Create libs/ directory in the project root directory. Download jar from releases and place it in **libs/io/gitlab/druzyna_a/totp4j/1.1.0/** directory.
 
 2. Add in-project repository
 ````Xml
@@ -18,14 +18,14 @@ This module is pretty small but will allow for consistent generation of **Time-b
 <dependency>
     <groupId>io.gitlab.druzyna_a</groupId>
     <artifactId>totp4j</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ````
 
 #### Example usage
-Securely acquire (accessing API) / relay (defining access to your own API) **INTERVAL**, **KEY**, **TOKEN_LENGTH** and **HMAC_ALGORITHM** beforehand (check other project pages / wikis). Create TOTP with mentioned parameters.
+Securely establish common **INTERVAL**, **KEY**, **TOKEN_LENGTH** and **HMAC_ALGORITHM**. Create TOTP with the mentioned parameters. The resultant token will be an int.
 
-````Java
+````java
 TOTP totp = new TOTP.Builder()
         .setInterval(INTERVAL)
         .setKey(KEY)
@@ -36,11 +36,26 @@ TOTP totp = new TOTP.Builder()
 ````
 a) Validate integer token:
 
-````Java
+````java
 boolean valid = totp.isTokenValid(token);
 ````
 b) Generate integer token:
 
-````Java
+````java
 int token = totp.generateToken();
 ````
+
+### License
+Copyright 2017 Damian Terlecki
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
